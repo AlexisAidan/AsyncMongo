@@ -2,7 +2,8 @@
 **Integrantes:** 
 - Alexis Aidan Leon Rodelas
 - Angel Damian Villalobos Ochoa 
-- Dominik Eliel Armendariz Mimbela 
+- Dominik Eliel Armendariz Mimbela
+
 **Materia:** Computo Paralelo y Distribuido 
 **Entorno de Ejecución:** Local (`mongodb://localhost:27017/`)  
 **Base de Datos:** `sample_mflix`  
