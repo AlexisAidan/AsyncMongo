@@ -1,4 +1,4 @@
-# Comparativa Síncrona vs. Asíncrona con Python y MongoDB (sample_mflix)
+# Comparativa Síncrona vs. Asíncrona con Python y MongoDB (mflix)
 **Integrantes:** 
 - Alexis Aidan Leon Rodelas
 - Angel Damian Villalobos Ochoa 
