@@ -89,7 +89,3 @@ classDiagram
 - Al no existir índices secundarios precreados sobre `genres` y `year`, MongoDB debe realizar un escaneo de colección para evaluar las condiciones de filtro en 23,539 registros.
 - **Enfoque Síncrono:** Las consultas llegan una por una; MongoDB utiliza un único hilo de ejecución a la vez, subutilizando la CPU del equipo.
 - **Enfoque Asíncrono:** Con `Semaphore(10)`, MongoDB recibe ráfagas paralelas y distribuye las tareas entre los **múltiples núcleos del procesador**, acelerando la respuesta global.
-
-# Ejecución de la aplicación asíncrona
-python app_asincrona.py
-```
