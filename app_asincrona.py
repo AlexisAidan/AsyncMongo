@@ -94,9 +94,7 @@ class AppAsincronaMflix:
             tg.create_task(self.operacion_eliminar())
             tg.create_task(self.operacion_bulk_mixto())
 
-    async def ejecutar_consultas(
-        self, total_consultas: int = NUM_CONSULTAS, concurrencia_max: int = 10
-    ) -> list[list[dict]]:
+    async def ejecutar_consultas(self, total_consultas: int = NUM_CONSULTAS, concurrencia_max: int = 10) -> list[list[dict]]:
         """
         Ejecuta múltiples consultas asíncronas concurrentes con asyncio.gather(),
         controlando la concurrencia mediante asyncio.Semaphore(10).
@@ -112,13 +110,11 @@ class AppAsincronaMflix:
 
         async def consultar_documentos(filtro: dict) -> list[dict]:
             async with semaforo:
-                # Regla PyMongo Async: find() devuelve AsyncCursor sin await;
+                # Regla PyMongo Async: find() devuelve AsyncCursor sin await
                 # to_list() se invoca con await para materializar los documentos.
                 return await self.collection.find(filtro).to_list()
 
-        # Creamos las tareas concurrentes
         tareas = [consultar_documentos(f) for f in filtros]
-        # Las ejecutamos concurrentemente con asyncio.gather
         resultados = await asyncio.gather(*tareas)
         return resultados
 
@@ -147,7 +143,6 @@ async def main():
     print("        INICIO DE PRUEBAS - APLICACION ASINCRONA (PyMongo Async)")
     print("=" * 65)
 
-    # 1. Lectura del archivo completo en memoria (fuera del cronometro de BD)
     print(f"Cargando dataset local completo desde: {ruta_dataset.name} ...")
     peliculas_totales = cargar_dataset_local(ruta_dataset, limite=None)
     total_docs = len(peliculas_totales)
